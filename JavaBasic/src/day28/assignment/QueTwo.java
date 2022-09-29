@@ -1,0 +1,35 @@
+package day28.assignment;
+
+// Q) Program to find the frequency of each element in the array.
+public class QueTwo{
+	 public static void main(String[] args) {  
+	        //Initialize array  
+	        int [] arr = {1, 2, 8, 3, 2, 2, 2, 5, 1};  
+	        //Array fr will store frequencies of element  
+	        
+	        int [] fr = new int [arr.length];  //{}
+	        int visited = -1;  
+	        for(int i = 0; i < arr.length; i++){  
+	            int count = 1;
+	            
+	            for(int j = i+1; j < arr.length; j++){  
+	                if(arr[i] == arr[j]){  //arr[1]==arr[4]
+	                	count++;  //2
+	                    //To avoid counting same element again  
+	                    fr[j] = visited;  //fr[4]=-1
+	                }  
+	            }  
+	            if(fr[i] != visited)  
+	                fr[i] = count;  
+	        }  
+	  
+	        //Displays the frequency of each element present in array  
+	        System.out.println("---------------------------------------");  
+	        System.out.println(" Element | Frequency");  
+	        System.out.println("---------------------------------------");  
+	        for(int i = 0; i < fr.length; i++){  
+	            if(fr[i] != visited) 
+	                System.out.println("    " + arr[i] + "    |    " + fr[i]);  
+	        }  
+	        System.out.println("----------------------------------------");  
+	    }}  
